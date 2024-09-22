@@ -7,9 +7,11 @@ const server = http.createServer(app);
 
 server.listen(5000, () => console.log(`Server started on 5000`));
 
+const URL = process.env.BASE_URL;
+
 const io = socketIO(server, {
   cors: {
-    origin: "http://localhost:8080",
+    origin: ["http://localhost:8080", URL],
   },
 });
 
